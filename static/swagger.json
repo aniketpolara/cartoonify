@@ -1,0 +1,36 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Cartoonify Image API",
+    "description": "Upload an image and get a cartoonified version",
+    "version": "1.0.0"
+  },
+  "host": "127.0.0.1:5000",
+  "schemes": ["http"],
+  "paths": {
+    "/cartoonify": {
+      "post": {
+        "summary": "Upload an image and receive the cartoonified image",
+        "consumes": ["multipart/form-data"],
+        "produces": ["image/jpeg"],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "image",
+            "type": "file",
+            "required": true,
+            "description": "Image file to cartoonify"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cartoonified image returned"
+          },
+          "400": {
+            "description": "Invalid request"
+          }
+        }
+      }
+    }
+  }
+}
